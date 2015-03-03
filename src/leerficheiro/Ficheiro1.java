@@ -25,4 +25,38 @@ public class Ficheiro1 {
             sc.close();
         }
     }
+    public void lerFicheiroEnteiro(String nome){
+          Scanner sc=null;
+    
+        String resposta;
+        try {
+            sc=new Scanner(new File(nome));
+            while(sc.hasNext()){// mientras haya elementos los lee
+                resposta=sc.next();//lee toda la linea y devuelve un string
+                System.out.println(resposta);
+            }
+        } catch (IOException ex) { //IO exception clase xeneralista
+            System.err.println("erro de lectura"+ex.toString());
+        }
+        finally{
+            sc.close();
+        }
+    }
+    public static void lerNumeros(String nome){
+             Scanner sc=null;
+    
+        int res;
+        try {
+            sc=new Scanner(new File(nome));
+            while(sc.hasNextInt()){// mientras haya elementos los lee
+                res=sc.nextInt();//lee toda la linea y devuelve un string
+                System.out.println(res);
+            }
+        } catch (IOException ex) { //IO exception clase xeneralista
+            System.err.println("erro de lectura"+ex.toString());
+        }
+        finally{
+            sc.close();
+        }
+    }
 }
