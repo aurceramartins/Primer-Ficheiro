@@ -49,7 +49,24 @@ public class Ficheiro1 {
         try {
             sc=new Scanner(new File(nome));
             while(sc.hasNextInt()){// mientras haya elementos los lee
-                res=sc.nextInt();//lee toda la linea y devuelve un string
+                res=sc.nextInt();//lee toda la linea y devuelve un Int
+                System.out.println(res);
+            }
+        } catch (IOException ex) { //IO exception clase xeneralista
+            System.err.println("erro de lectura"+ex.toString());
+        }
+        finally{
+            sc.close();
+        }
+    }
+    public void lerConDelimitadores(String nome){
+        Scanner sc=null;
+    
+        int res;
+        try {
+            sc=new Scanner(new File(nome)).useDelimiter(",");
+            while(sc.hasNextInt()){// mientras haya elementos los lee
+                res=sc.nextInt();//lee toda la linea y devuelve un Int
                 System.out.println(res);
             }
         } catch (IOException ex) { //IO exception clase xeneralista
